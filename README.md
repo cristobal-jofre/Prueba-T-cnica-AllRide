@@ -74,7 +74,7 @@ Request:
 `GET http://localhost:3001/api/movie`
 
 Response body:
-
+```
 [
     {
         "_id": "621cc0481b563825b850c9b8",
@@ -85,7 +85,7 @@ Response body:
         "updatedAt": "2022-02-28T12:30:00.394Z"
     }
 ]
-
+```
 
 ### Get movie by id
 
@@ -95,6 +95,7 @@ Request:
 
 Response body:
 
+```
 {
     "_id": "621cc3931b563825b850c9d2",
     "name": "Spider-Man: No Way Home",
@@ -103,7 +104,7 @@ Response body:
     "createdAt": "2022-02-28T12:44:03.920Z",
     "updatedAt": "2022-02-28T12:44:03.920Z"
 }
-
+```
 
 ### Create movie
 
@@ -113,6 +114,7 @@ Request:
 
 Response body:
 
+```
 {
     "msg": "Película creada",
     "movie": {
@@ -124,6 +126,7 @@ Response body:
         "updatedAt": "2022-02-28T12:44:03.920Z"
     }
 }
+```
 
 ### Update movie
 
@@ -133,6 +136,7 @@ Request:
 
 Response body:
 
+```
 {
     "msg": "Película actualizada",
     "result": {
@@ -144,6 +148,7 @@ Response body:
         "updatedAt": "2022-02-28T12:55:19.844Z"
     }
 }
+```
 
 ### Delete movie
 
@@ -153,6 +158,7 @@ Request:
 
 Response body:
 
+```
 {
     "msg": "Película eliminada",
     "result": {
@@ -164,7 +170,7 @@ Response body:
         "updatedAt": "2022-02-28T12:55:35.193Z"
     }
 }
-
+```
 
 Have a nice day. I really enjoyed solving this challenge :D
 ****
