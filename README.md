@@ -48,7 +48,6 @@ cd frontend
 npm start
 ```
 
-
 To access to the backend, you have to open [http://localhost:3001](http://localhost:3001) in your browser.
 
 API Resources:
@@ -58,7 +57,7 @@ API Resources:
  - [PUT /api/movie/:id](#update-movie)
  - [DELETE /api/movie/:id](#delete-movie)
 
-### Example input 
+### Example input for create a movie
 ```
 {
     "name": "Spider-Man: No Way Home",
