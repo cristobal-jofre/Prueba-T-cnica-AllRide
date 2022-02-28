@@ -9,7 +9,7 @@ The technologies used were:
 * MongoDB
 * Express
 * React
-* Node
+* NodeJS
 
 And this other libraries That I Use in this project:
 
