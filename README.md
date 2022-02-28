@@ -1,8 +1,10 @@
 # Prueba-Tecnica-AllRide
 
-The MERN Stack is an acronym for Postgres, Express, React, Node. It's a set of tools to create a complete web application.
+## Welcome!
 
-To understand this project, I recommend that you could know these tolls:
+This is my proposed solution for `Prueba Técnica Backend Developer Jr.`!
+
+The technologies used were:
 
 * MongoDB
 * Express
@@ -16,174 +18,153 @@ And this other libraries That I Use in this project:
 ## Installation
 This project consists in a Web Frontend Application and a Web Backend Application.
 
-First, clone the repo:
-
-<pre><code> git clone https://github.com/cristobal-jofre/PERN-Stack </code></pre>
-
-to run the backend:
-<pre><code> npm run dev </code></pre>
-
-
-to run the frontend:
-
-<pre><code> cd client
- npm start
-</code></pre>
-
-
-# Desafio Mercado Libre
-
-## Welcome!
-
-This is my proposed solution for `Desafío Frontend Mercado Libre`!
-
-The technologies used were:
-
-- NodeJS + TS
-- React + TS
-- Docker
-
-## Prerequisites
-
-To use these files, you must first have the following installed:
-- [git](https://git-scm.com/)
-- [docker](https://docs.docker.com/engine/installation/)
-- [docker-compose](https://docs.docker.com/compose/install/)
-
-## How to use
-
-The following steps will run a local instance of the solution using the configuration file (`docker-compose.yml`):
-
 1. Clone this repository.
 
 ```bash
-git clone https://github.com/jpstorm21/desafio-mercado-libre.git
+git clone https://github.com/cristobal-jofre/Prueba-Tecnica-AllRide
 ```
-2. Change directory into the root of the project.
+
+2. Change directory into the root of the project. 
 
 ```bash
-cd  desafio-mercado-libre
+cd prueba-allride
 ```
 
-3. Build and Run the project with one of the follows commands:
+# Backend
 
-- With docker-compose commands:
+to run the backend:
 
 ```bash
-docker-compose up
-# if you need the project execute in the background, use the -d, --detach option
-docker-compose up -d
+cd backend
+npm run dev
 ```
-# Playground - Backend
+
+# Frontend
+
+to run the frontend:
+
+```bash
+cd frontend
+npm start
+```
+
 
 To access to the backend, you have to open [http://localhost:3001](http://localhost:3001) in your browser.
 
 API Resources:
- - [GET /api/items?q=:query](#get-items-by-search)
- - [GET /api/items/:id](#get-item-by-id)
-### Get Items by Seacrh
+ - [GET /api/movie/](#get-movies)
+ - [GET /api/movie/:id](#get-movie-by-id)
+ - [POST /api/movie/](#create-movie)
+ - [PUT /api/movie/:id](#update-movie)
+ - [DELETE /api/movie/:id](#delete-movie)
+
+### Example input 
+
+`{
+    "name": "Spider-Man: No Way Home",
+    "releaseDate": "2021-12-16",
+    "genre": "Superhéroes"
+ }
+
+
+### Get Movies 
 
 Request:
 
-`GET http://localhost:3001/api/items`
-
-### `/items` Queries Parameters
-
-These queries parameters are available on the `/product` route:
-
-| Field query parameter | Description |
-|-----------------------|-------------|
-| `q` | Filter items by `name` that match the given string. *Min: 2 characters*|
-
-
-### Example query using
-
-`GET http://localhost:3001/api/items?q=ipad
+`GET http://localhost:3001/api/movie`
 
 Response body:
 
+[
     {
-        "data": {
-            author: {
-                "name": "Juan Pablo",
-                "lastname": "Martínez",
-            },
-            items: [
-                {
-                  "id": "MLA546657",
-                  "title": "ipad 4 generacion",
-                  "picture": "https://http2.mlstatic.com/D_994609-MLA47871010530_102021-I.jpg",
-                  "price": {
-                      "currency": "ARG";
-                      "amount": 3000;
-                      "decimals": 0.0,
-                  },
-                  "condition": "new",
-                  "free_shipping": true,
-                },
-                ...
-            ],
-            categories: [
-                "tecnologia"
-            ]
+        "_id": "621cc0481b563825b850c9b8",
+        "name": "Spider-Man: No Way Home",
+        "releaseDate": "2021-12-16T00:00:00.000Z",
+        "genre": "Superhéroes",
+        "createdAt": "2022-02-28T12:30:00.394Z",
+        "updatedAt": "2022-02-28T12:30:00.394Z"
     }
+]
 
-### Get product by id
+
+### Get movie by id
 
 Request:
 
-`GET http://localhost:3001/api/items/:id`
+`GET http://localhost:3001/api/movie/:id`
 
 Response body:
 
-    {
-        "data": {
-            author: {
-                "name": "Juan Pablo",
-                "lastname": "Martínez",
-            },
-            items: {
-                  "id": "MLA546657",
-                  "title": "ipad 4 generacion",
-                  "picture": "https://http2.mlstatic.com/D_994609-MLA47871010530_102021-I.jpg",
-                  "price": {
-                      "currency": "ARG";
-                      "amount": 3000;
-                      "decimals": 0.0,
-                  },
-                  "condition": "new",
-                  "free_shipping": true,
-                  "description": "ipad muy bueno ....";
-                  "sold_quantity": 45;
-            }
+{
+    "_id": "621cc3931b563825b850c9d2",
+    "name": "Spider-Man: No Way Home",
+    "releaseDate": "2021-12-16T00:00:00.000Z",
+    "genre": "Superhéroes",
+    "createdAt": "2022-02-28T12:44:03.920Z",
+    "updatedAt": "2022-02-28T12:44:03.920Z"
+}
+
+
+### Create movie
+
+Request:
+
+`POST http://localhost:3001/api/movie/`
+
+Response body:
+
+{
+    "msg": "Película creada",
+    "movie": {
+        "name": "Spider-Man: No Way Home",
+        "releaseDate": "2021-12-16T00:00:00.000Z",
+        "genre": "Superhéroes",
+        "_id": "621cc3931b563825b850c9d2",
+        "createdAt": "2022-02-28T12:44:03.920Z",
+        "updatedAt": "2022-02-28T12:44:03.920Z"
     }
+}
 
-## Playground - Frontend
+### Update movie
 
-To access to the frontend, you just have to navigate to [http://localhost:3000](http://localhost:300) in your browser.
+Request:
 
-## Test and Coverage Backend
+`PUT http://localhost:3001/api/movie/:id`
 
-If you need to execute the test for the solution backend and generate the coverage report, then execute one of the follows commands:
+Response body:
 
-```sh
-cd backend
-npm run test
-```
+{
+    "msg": "Película actualizada",
+    "result": {
+        "_id": "621cc3931b563825b850c9d2",
+        "name": "Spider-Man: No Way Home",
+        "releaseDate": "2020-11-12T03:00:00.000Z",
+        "genre": "Accion",
+        "createdAt": "2022-02-28T12:44:03.920Z",
+        "updatedAt": "2022-02-28T12:55:19.844Z"
+    }
+}
 
-### Note
+### Delete movie
 
-Although it was not requested due to time issues, I did not manage to test on the frontend.
+Request:
 
+`DELETE http://localhost:3001/api/movie/:id`
 
-## Stop Solution
+Response body:
 
-If need to stop the execution of the solution and remove the container associated, then execute one of the follows commands:
+{
+    "msg": "Película eliminada",
+    "result": {
+        "_id": "621cc3931b563825b850c9d2",
+        "name": "Spider-Man: No Way Home",
+        "releaseDate": "2020-11-12T03:00:00.000Z",
+        "genre": "Accion",
+        "createdAt": "2022-02-28T12:44:03.920Z",
+        "updatedAt": "2022-02-28T12:55:35.193Z"
+    }
+}
 
-- With docker-compose
-```sh
-docker-compose down
-```
 
 Have a nice day. I really enjoyed solving this challenge :D
 ****
