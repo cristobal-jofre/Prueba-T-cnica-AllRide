@@ -128,6 +128,7 @@ Response body:
     }
 }
 ```
+NOTE: The format of releaseDate is YYYY-MM-DD
 
 ### Update movie
 
