@@ -59,13 +59,13 @@ API Resources:
  - [DELETE /api/movie/:id](#delete-movie)
 
 ### Example input 
-
-`{
+```
+{
     "name": "Spider-Man: No Way Home",
     "releaseDate": "2021-12-16",
     "genre": "Superhéroes"
  }
-
+```
 
 ### Get Movies 
 
@@ -74,6 +74,7 @@ Request:
 `GET http://localhost:3001/api/movie`
 
 Response body:
+
 ```
 [
     {
