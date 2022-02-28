@@ -66,6 +66,7 @@ API Resources:
     "genre": "Superhéroes"
  }
 ```
+NOTE: The format of releaseDate is YYYY-MM-DD
 
 ### Get Movies 
 
@@ -128,7 +129,7 @@ Response body:
     }
 }
 ```
-NOTE: The format of releaseDate is YYYY-MM-DD
+NOTE: Remember the format of releaseDate
 
 ### Update movie
 
