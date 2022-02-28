@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 
+import * as config from "../config/config.json";
+
+const configBackend = config;
+
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
 
   const loadMovies = async () => {
-    const response = await fetch("http://localhost:3001/api/movie/");
+    const response = await fetch(`${configBackend.url_backend}/api/movie/`);
     const data = await response.json();
     setMovies(data);
   };
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3001/api/movie/${id}`, {
+      await fetch(`${configBackend.url_backend}/api/movie/${id}`, {
         method: "DELETE",
       });
       setMovies(movies.filter((movie) => movie._id !== id));
@@ -50,7 +54,9 @@ const MoviesList = () => {
               }}
             >
               <Typography>{movie.name}</Typography>
-              <Typography>{movie.releaseDate}</Typography>
+              <Typography>
+                {new Date(movie.releaseDate).toLocaleDateString()}
+              </Typography>
               <Typography>{movie.genre}</Typography>
             </div>
             <div>

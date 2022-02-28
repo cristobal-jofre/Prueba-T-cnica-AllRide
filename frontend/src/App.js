@@ -14,6 +14,7 @@ export const App = () => {
           <Route index path="/" element={<MovieList />} />
           <Route path="/api/movie" element={<MovieForm />} />
           <Route path="/api/movie/:id" element={<MovieForm />} />
+          <Route path="*" element={<h1>404 Page not found</h1>} />
         </Routes>
       </Container>
     </BrowserRouter>

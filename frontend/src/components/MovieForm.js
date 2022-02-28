@@ -11,6 +11,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 
+import * as config from "../config/config.json";
+
+const configBackend = config;
+
 const MovieForm = () => {
   const [movie, setMovie] = useState({
     name: "",
@@ -30,11 +34,11 @@ const MovieForm = () => {
   }, [params.id]);
 
   const loadMovie = async (id) => {
-    const res = await fetch(`http://localhost:3001/api/movie/${id}`);
+    const res = await fetch(`${configBackend.url_backend}/api/movie/${id}`);
     const data = await res.json();
     setMovie({
       name: data.name,
-      releaseDate: data.releaseDate,
+      releaseDate: new Date(data.releaseDate).toLocaleDateString(),
       genre: data.genre,
     });
     setEditing(true);
@@ -46,7 +50,7 @@ const MovieForm = () => {
     try {
       if (editing) {
         const response = await fetch(
-          `http://localhost:3001/api/movie/${params.id}`,
+          `${configBackend.url_backend}/api/movie/${params.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -56,11 +60,14 @@ const MovieForm = () => {
         const a = await response.json();
         console.log(a);
       } else {
-        const response = await fetch("http://localhost:3001/api/movie/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(movie),
-        });
+        const response = await fetch(
+          `${configBackend.url_backend}/api/movie/`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(movie),
+          }
+        );
         await response.json();
       }
       setLoading(false);
